@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { Links } from "./ui/nav-links";
 
 const DMSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -28,7 +30,10 @@ export default function RootLayout({
       lang="en"
       className={`${DMSans.variable} ${DMMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Links />
+        {children}
+      </body>
     </html>
   );
 }
