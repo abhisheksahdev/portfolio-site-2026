@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Mono } from "next/font/google";
+import { DM_Sans, DM_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 import { Links } from "./ui/nav-links";
+import { Taskbar } from "./ui/taskbar";
 
 const DMSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -11,6 +11,12 @@ const DMSans = DM_Sans({
 
 const DMMono = DM_Mono({
   variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: ["500"],
+});
+
+const JetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   weight: ["500"],
 });
@@ -28,11 +34,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${DMSans.variable} ${DMMono.variable} h-full antialiased`}
+      className={`${DMSans.variable} ${DMMono.variable} ${JetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Links />
         {children}
+        <Taskbar />
       </body>
     </html>
   );
