@@ -29,7 +29,8 @@ export default function NowReading() {
   }, []);
 
   if (book) {
-    const bookPercent = parseInt(book.progress);
+    const bookPercent = parseInt(book.progress) + "%";
+    console.log(bookPercent);
     return (
       <div className="flex font-mono font-normal text-xs items-center gap-x-4 mr-4">
         <div className="flex items-center gap-x-2">
@@ -38,9 +39,16 @@ export default function NowReading() {
             {book.bookTitle} by {book.author}
           </p>
         </div>
-        <div className="h-1 w-16 bg-gray-400">
-          <div className={`h-1 w-[${bookPercent}%] bg-sky-400`}></div>
-        </div>
+        {bookPercent && (
+          <div className="h-1 w-16 bg-gray-400">
+            <div
+              style={{
+                width: bookPercent,
+              }}
+              className={`h-1 bg-sky-400`}
+            ></div>
+          </div>
+        )}
         {/* <p> @ {parseInt(book.progress)}%</p> */}
       </div>
     );

@@ -1,6 +1,3 @@
-// 26.7039077, 89.0916337
-// https://api.openweathermap.org/data/2.5/weather?lat=26.7039077&lon=89.0916337&appid=f9307bc3837dd28a347c08293b782091&units=metric
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -28,7 +25,7 @@ export function CurrentWeather() {
   }, []);
 
   return (
-    <div className="font-medium font-mono flex items-center gap-x-1">
+    <div className="font-medium font-mono flex items-center gap-x-1 text-xs">
       <TiWeatherCloudy size={16} color="skyblue" />
       <p>{temp}&deg;C</p>
     </div>
