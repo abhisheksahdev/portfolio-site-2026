@@ -7,7 +7,10 @@ export function Links() {
   const pathName = usePathname();
 
   return (
-    <header className="flex justify-between pr-6 pl-6 w-screen top-[1vw] fixed z-50 h-16">
+    <header
+      className="flex justify-between pr-6 pl-6 w-screen py-[1vw] fixed z-50 bg-background shadow-2xl
+    border-b-[0.5px] border-gray-800"
+    >
       <div className="font-bold text-lg ">Abhishek</div>
       <nav className="flex gap-[2vw]">
         <div

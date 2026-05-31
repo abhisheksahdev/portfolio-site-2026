@@ -3,5 +3,5 @@ export default function BlogLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <section>{children}</section>;
+  return <section className="mt-6 p-5">{children}</section>;
 }
