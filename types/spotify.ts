@@ -4,3 +4,8 @@ export interface NowPlayingSong {
   songUrl?: string;
   title?: string;
 }
+export interface RecentlyPlayedSong {
+  artist?: string;
+  songUrl?: string;
+  title?: string;
+}

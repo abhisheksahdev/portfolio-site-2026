@@ -10,7 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-dm-mono);
-  --font-display: var(--font-jetbrains-mono);
+  --font-logo: var(--font-barlow-condensed);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -12,9 +12,11 @@ type Book = {
 
 export default function NowReading() {
   const [book, setBook] = useState<Book | null>(null);
+  const [isFetchingBook, setIsFetchingBook] = useState(false);
 
   useEffect(() => {
     const getCurrentlyReading = async () => {
+      setIsFetchingBook(true);
       const res = await fetch(
         "http://localhost:3001/get-currently-reading-book",
         // "https://currently-reading-api.onrender.com/get-currently-reading-book",
@@ -24,13 +26,17 @@ export default function NowReading() {
       if (res.status !== 404) {
         setBook(resData);
       }
+      setIsFetchingBook(false);
     };
     getCurrentlyReading();
   }, []);
 
-  if (book) {
+  if (isFetchingBook) {
+    return <div className="font-mono text-xs">[ What am i reading ]</div>;
+  }
+
+  if (!isFetchingBook && book) {
     const bookPercent = parseInt(book.progress) + "%";
-    console.log(bookPercent);
     return (
       <div className="flex font-mono font-normal text-xs items-center gap-x-4 mr-4">
         <div className="flex items-center gap-x-2">
@@ -40,16 +46,18 @@ export default function NowReading() {
           </p>
         </div>
         {bookPercent && (
-          <div className="h-1 w-16 bg-gray-400">
-            <div
-              style={{
-                width: bookPercent,
-              }}
-              className={`h-1 bg-sky-400`}
-            ></div>
+          <div className="flex gap-x-2 items-center justify-center">
+            <div className="h-1 w-16 rounded-2xl bg-gray-400">
+              <div
+                style={{
+                  width: bookPercent,
+                }}
+                className={`h-1 rounded-xl bg-[#96031A]`}
+              ></div>
+            </div>
+            <div>{bookPercent}</div>
           </div>
         )}
-        {/* <p> @ {parseInt(book.progress)}%</p> */}
       </div>
     );
   }

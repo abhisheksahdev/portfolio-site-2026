@@ -31,7 +31,11 @@ if (!CLIENT_ID || !CLIENT_SECRET) {
 }
 
 // Scopes needed for now playing
-const SCOPES = ["user-read-currently-playing", "user-read-playback-state"];
+const SCOPES = [
+  "user-read-currently-playing",
+  "user-read-playback-state",
+  "user-read-recently-played",
+];
 
 console.log("🎵 Spotify OAuth Helper");
 console.log("======================");

@@ -9,9 +9,9 @@ export function Links() {
   return (
     <header
       className="flex justify-between pr-6 pl-6 w-screen py-[1vw] fixed z-50 bg-background shadow-2xl
-    border-b-[0.5px] border-gray-800"
+    border-b-[0.5px] border-gray-800 items-center"
     >
-      <div className="font-bold text-lg ">Abhishek</div>
+      <div className="font-bold text-3xl font-logo ">.AVI</div>
       <nav className="flex gap-[2vw]">
         <div
           className={`text-gray-400 ${pathName === "/" ? "text-white font-bold" : ""}  hover:text-white`}
