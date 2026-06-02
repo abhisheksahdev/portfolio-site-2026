@@ -3,6 +3,7 @@ import { DM_Sans, DM_Mono, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import { Links } from "./ui/nav-links";
 import { Taskbar } from "./ui/taskbar";
+import { Footer } from "./ui/footer";
 
 const BarlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Links />
         {children}
+        <Footer />
         <Taskbar />
       </body>
     </html>

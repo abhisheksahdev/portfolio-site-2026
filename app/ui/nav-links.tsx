@@ -12,7 +12,7 @@ export function Links() {
     border-b-[0.5px] border-gray-800 items-center"
     >
       <div className="font-bold text-3xl font-logo ">.AVI</div>
-      <nav className="flex gap-[2vw]">
+      <nav className="flex gap-[2vw] items-center">
         <div
           className={`text-gray-400 ${pathName === "/" ? "text-white font-bold" : ""}  hover:text-white`}
         >
@@ -28,21 +28,22 @@ export function Links() {
         >
           <Link href="/about">About</Link>
         </div>
-        <div
-          className={`text-gray-400 ${pathName === "/contact" ? "text-white font-bold" : ""}  hover:text-white`}
-        >
-          <Link href="/contact">Contact</Link>
-        </div>
+
         <div
           className={`text-gray-400 ${pathName === "/blog" ? "text-white font-bold" : ""}  hover:text-white`}
         >
           <Link href="/blog">Blog</Link>
         </div>
-        <div>
+        <div
+          className={`text-gray-400 ${pathName === "/contact" ? "text-white font-bold" : ""}  hover:text-white`}
+        >
+          <Link href="/contact">Start Project</Link>
+        </div>
+        {/* <div>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             Resume
           </a>
-        </div>
+        </div> */}
       </nav>
     </header>
   );
