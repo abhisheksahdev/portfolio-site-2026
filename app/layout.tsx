@@ -4,6 +4,7 @@ import "./globals.css";
 import { Links } from "./ui/nav-links";
 import { Taskbar } from "./ui/taskbar";
 import { Footer } from "./ui/footer";
+import LenisProvider from "./components/LenisProvider";
 
 const BarlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
@@ -38,9 +39,11 @@ export default function RootLayout({
       className={`${DMSans.variable} ${DMMono.variable} ${BarlowCondensed.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <LenisProvider>
+          {children}
+          <Footer />
+        </LenisProvider>
         <Links />
-        {children}
-        <Footer />
         <Taskbar />
       </body>
     </html>

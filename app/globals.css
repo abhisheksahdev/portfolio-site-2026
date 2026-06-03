@@ -29,3 +29,15 @@ body {
 .footer-link-con > li > a:hover {
   color: #99a1af;
 }
+
+.lines {
+  display: block;
+}
+
+.words {
+  display: inline-block;
+}
+
+.chars {
+  display: inline-block;
+}
