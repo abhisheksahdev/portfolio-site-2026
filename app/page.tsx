@@ -23,15 +23,16 @@ export default function Home() {
     // gsap tween
 
     gsap.from(split.lines, {
-      yPercent: 20,
+      yPercent: 100,
       autoAlpha: 0,
-      // opacity: 1,
-      duration: 1.5,
-      stagger: {
-        amount: 0.5,
-        from: "end",
-      },
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.05,
+      ease: "expo.out",
+      mask: "lines",
     });
+
+    return () => split.revert();
   }, {});
 
   return (

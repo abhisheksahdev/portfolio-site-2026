@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { SiReaddotcv } from "react-icons/si";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 export function Footer() {
   return (
@@ -7,8 +9,30 @@ export function Footer() {
         <div className="flex justify-between items-top">
           <div>
             <div className="font-bold text-3xl font-logo ">.AVI</div>
-            <div className="font-medium text-xl font-logo text-gray-400">
+            <div className="font-medium text-4xl font-logo text-gray-400">
               I MUST NOT FEAR
+            </div>
+            <div className="flex gap-x-6 items-center mt-5">
+              <a
+                href="https://github.com/abhisheksahdev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="text-gray-500 hover:text-white transition-colors duration-200 size-7" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/abhisheksahdev/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="text-gray-500 hover:text-blue-500 transition-colors duration-200 size-7" />
+              </a>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <SiReaddotcv
+                  size={32}
+                  className="text-gray-500 hover:text-white transition-colors duration-200 size-7"
+                />
+              </a>
             </div>
           </div>
           <nav className="flex items-start gap-x-12">
@@ -56,28 +80,31 @@ export function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-col gap-3">
+            {/* <div className="flex flex-col gap-3">
               <p className="font-mono text-gray-400">[SOCIAL]</p>
               <ul className="flex flex-col gap-2 footer-link-con">
                 <li>
-                  <a href="https://www.linkedin.com/in/abhisheksahdev/">
+                  <a
+                    href="https://www.linkedin.com/in/abhisheksahdev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Linkedin
                   </a>
                 </li>
                 <li>
-                  <a href="#">Insta</a>
-                </li>
-                <li>
-                  <a href="https://github.com/abhisheksahdev">Github</a>
+                  <a
+                    href="https://github.com/abhisheksahdev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Github
+                  </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </nav>
         </div>
-        {/* <div className="flex justify-between items-center font-mono text-sm mt-20">
-          <span>[2026 ABHISHEK SAH]</span>
-          <span>Made in India</span>
-        </div> */}
       </div>
     </footer>
   );

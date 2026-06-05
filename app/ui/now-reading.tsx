@@ -17,14 +17,19 @@ export default function NowReading() {
   useEffect(() => {
     const getCurrentlyReading = async () => {
       setIsFetchingBook(true);
-      const res = await fetch(
-        "http://localhost:3001/get-currently-reading-book",
-        // "https://currently-reading-api.onrender.com/get-currently-reading-book",
-      );
-      const resData = await res.json();
+      try {
+        const res = await fetch(
+          "http://localhost:3001/get-currently-reading-book",
+          // "https://currently-reading-api.onrender.com/get-currently-reading-book",
+        );
+        const resData = await res.json();
 
-      if (res.status !== 404) {
-        setBook(resData);
+        if (res.status !== 404) {
+          setBook(resData);
+        }
+      } catch (error) {
+        console.error(error);
+        setBook(null);
       }
       setIsFetchingBook(false);
     };
@@ -61,5 +66,9 @@ export default function NowReading() {
       </div>
     );
   }
-  return <div></div>;
+  return (
+    <div className="font-mono font-normal text-xs">
+      [I am not reading anything]
+    </div>
+  );
 }
