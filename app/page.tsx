@@ -11,44 +11,52 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function Home() {
   useGSAP(() => {
-    const split = SplitText.create(".hero-text", {
-      type: "lines, chars",
-      linesClass: "lines",
-      wordsClass: "words",
-      charsClass: "chars",
-      autoSplit: true,
-      smartWrap: true,
+    const texts = gsap.utils.toArray(".hero-text");
+
+    texts.forEach((text) => {
+      const split = new SplitText(text as string, {
+        type: "lines, chars, words",
+        autoSplit: true,
+        smartWrap: true,
+        mask: "words",
+      });
+
+      gsap.from(split.words, {
+        scrollTrigger: {
+          trigger: text as string,
+          start: "top 94%",
+          toggleActions: "restart none none none",
+          // markers: true,
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        stagger: 0.1,
+        mask: "words",
+      });
     });
 
     // gsap tween
 
-    gsap.from(split.lines, {
-      yPercent: 100,
-      autoAlpha: 0,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.05,
-      ease: "expo.out",
-      mask: "lines",
-    });
-
-    return () => split.revert();
+    // return () => split.revert();
   }, {});
 
   return (
     <div className="pt-16 p-6">
+      {/* three.js artifact */}
       <section className="h-screen pl-6 pr-6 pt-20 flex w-full ">
-        <div className="font-logo font-bold text-6xl w-1/2 leading-18 hero-text">
-          I MUST NOT FEAR. FEAR IS THE MIND-KILLER. FEAR IS THE LITTLE-DEATH
-          THAT BRINGS TOTAL OBLITERATION. I WILL FACE MY FEAR.
+        <div></div>
+      </section>
+      {/* work experience timeline */}
+      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen">
+        <div className="font-logo font-bold text-5xl leading-18 hero-text">
+          Work // काम
         </div>
         <div></div>
       </section>
-      <section className="h-screen pl-6 pr-6 pt-20 flex w-full ">
-        <div className="font-logo font-bold text-6xl w-1/2 leading-18 hero-text">
-          Deep in the human unconscious is a pervasive need for a logical
-          universe that makes sense. But the real universe is always one step
-          beyond logic.
+      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen">
+        <div className="font-logo font-bold text-5xl leading-18 hero-text">
+          Books I Love
         </div>
         <div></div>
       </section>

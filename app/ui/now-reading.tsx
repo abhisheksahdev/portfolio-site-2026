@@ -1,17 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CurrentlyReadingListItem from "../components/CurrentlyReadingListItem";
 
-import { FaBookOpen } from "react-icons/fa";
-
-type Book = {
+export type Book = {
   bookTitle: string;
   author: string;
   progress: string;
 };
 
 export default function NowReading() {
-  const [book, setBook] = useState<Book | null>(null);
+  const [books, setBooks] = useState<Book[] | null>(null);
   const [isFetchingBook, setIsFetchingBook] = useState(false);
 
   useEffect(() => {
@@ -25,44 +24,31 @@ export default function NowReading() {
         const resData = await res.json();
 
         if (res.status !== 404) {
-          setBook(resData);
+          setBooks(resData.books);
         }
       } catch (error) {
         console.error(error);
-        setBook(null);
+        setBooks(null);
       }
       setIsFetchingBook(false);
     };
+
     getCurrentlyReading();
   }, []);
 
   if (isFetchingBook) {
-    return <div className="font-mono text-xs">[ What am i reading ]</div>;
+    return <div className="font-mono text-xs">[ Fetching Book ]</div>;
   }
 
-  if (!isFetchingBook && book) {
-    const bookPercent = parseInt(book.progress) + "%";
+  if (!isFetchingBook && books && books?.length > 0) {
     return (
-      <div className="flex font-mono font-normal text-xs items-center gap-x-4 mr-4">
-        <div className="flex items-center gap-x-2">
-          <FaBookOpen color="skyblue" />
-          <p>
-            {book.bookTitle} by {book.author}
-          </p>
+      <div className="flex flex-col font-mono font-normal text-xs items-center gap-x-4 mr-4 group">
+        <div className="hidden group-hover:block bg-black w-full flex-col absolute bottom-7 border-white border">
+          {books?.map((book, i) => (
+            <CurrentlyReadingListItem key={i} book={book} />
+          ))}
         </div>
-        {bookPercent && (
-          <div className="flex gap-x-2 items-center justify-center">
-            <div className="h-1 w-16 rounded-2xl bg-gray-400">
-              <div
-                style={{
-                  width: bookPercent,
-                }}
-                className={`h-1 rounded-xl bg-[#96031A]`}
-              ></div>
-            </div>
-            <div>{bookPercent}</div>
-          </div>
-        )}
+        <CurrentlyReadingListItem showIcon book={books[0]} />
       </div>
     );
   }
