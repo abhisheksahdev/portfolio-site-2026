@@ -18,8 +18,6 @@ export function CurrentWeather() {
       if (res.status === 200) {
         setTemp(parseInt(resData["main"]["temp"]));
       }
-
-      console.log(resData["main"]["temp"]);
     };
     getCurrentWeather();
   }, []);
