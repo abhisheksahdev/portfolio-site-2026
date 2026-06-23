@@ -43,8 +43,8 @@ export default function NowReading() {
   if (!isFetchingBook && books && books?.length > 0) {
     return (
       <div className="flex flex-col font-mono font-normal text-xs items-center gap-x-4 mr-4 group">
-        {books?.length > 1 && (
-          <div className="hidden group-hover:block bg-gray-900 w-full flex-col absolute bottom-7 p-2 rounded">
+        {books?.length > 0 && (
+          <div className="hidden group-hover:block bg-gray-900 px-2 flex-col absolute bottom-9 p-2 rounded transition-discrete transition-opacity duration-320 starting:opacity-0">
             {books?.map((book, i) => (
               <CurrentlyReadingListItem key={i} book={book} />
             ))}

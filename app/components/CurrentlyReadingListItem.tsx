@@ -14,7 +14,7 @@ export default function CurrentlyReadingListItem({
 }: CurrentlyReadingListItemProps) {
   const bookPercent = parseInt(book.progress) + "%";
   return (
-    <div className={`${extraStyles} flex gap-x-2 mb-2 justify-between`}>
+    <div className={`${extraStyles} flex gap-x-2`}>
       <div className="flex items-center gap-x-2">
         {showIcon && <FaBookOpen color="skyblue" />}
         <p>
