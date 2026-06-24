@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SkillsScroller from "./components/SkillsScroller/page";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -47,6 +48,9 @@ export default function Home() {
       <section className="h-screen pl-6 pr-6 pt-20 flex w-full ">
         <div></div>
       </section>
+      <div className="flex items-center justify-center">
+        <SkillsScroller />
+      </div>
       {/* work experience timeline */}
       <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen">
         <div className="font-logo font-bold text-5xl leading-18 hero-text">
