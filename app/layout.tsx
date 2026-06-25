@@ -5,6 +5,7 @@ import { Links } from "./ui/nav-links";
 import { Taskbar } from "./ui/taskbar";
 import { Footer } from "./ui/footer";
 import LenisProvider from "./components/LenisProvider";
+import CustomCursor from "./components/CustomCursor";
 
 const BarlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
@@ -45,6 +46,7 @@ export default function RootLayout({
         </LenisProvider>
         <Links />
         <Taskbar />
+        <CustomCursor />
       </body>
     </html>
   );
