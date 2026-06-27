@@ -1,36 +1,22 @@
 "use client";
 
-import gsap from "gsap";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export default function CustomCursor() {
-  const pointer = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    gsap.set(pointer.current, {
-      xPercent: -50,
-      yPercent: -50,
-    });
-  }, []);
-
   useEffect(() => {
-    const setCursorX = gsap.quickTo(pointer.current, "x", { duration: 0.2 });
-    const setCursorY = gsap.quickTo(pointer.current, "y", { duration: 0.2 });
+    const cursor = document.querySelector(".cursor") as HTMLElement;
+    document.addEventListener("mousemove", onMouseMove);
 
-    const onPointerMove = (e: PointerEvent) => {
-      setCursorX(e.clientX);
-      setCursorY(e.clientY);
-    };
+    function onMouseMove(e: MouseEvent) {
+      const x = e.clientX;
+      const y = e.clientY;
 
-    document.body.addEventListener("pointermove", onPointerMove);
-    return () =>
-      document.body.removeEventListener("pointermove", onPointerMove);
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
+    }
   }, []);
 
   return (
-    <div
-      ref={pointer}
-      className="pointer-events-none absolute overflow-hidden rounded-full size-6 bg-white z-50"
-    ></div>
+    <div className="pointer-events-none fixed rounded-full size-5 bg-white z-50 -translate-1/2 cursor mix-blend-difference"></div>
   );
 }

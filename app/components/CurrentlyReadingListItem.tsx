@@ -7,6 +7,10 @@ interface CurrentlyReadingListItemProps {
   extraStyles?: string;
 }
 
+function truncateTitle(title: string) {
+  return title.length > 30 ? `${title.substring(0, 30)}...` : title;
+}
+
 export default function CurrentlyReadingListItem({
   book,
   showIcon = false,
@@ -18,7 +22,7 @@ export default function CurrentlyReadingListItem({
       <div className="flex items-center gap-x-2">
         {showIcon && <FaBookOpen color="skyblue" />}
         <p>
-          {book.bookTitle} by {book.author}
+          {truncateTitle(book.bookTitle)} by {book.author}
         </p>
       </div>
       {bookPercent && (

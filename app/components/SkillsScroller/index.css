@@ -14,7 +14,7 @@
 
 .scroller[data-animated="true"] .scroller__inner {
   flex-wrap: nowrap;
-  animation: scroll var(--_animation-duration, 10s)
+  animation: scroll var(--_animation-duration, 15s)
     var(--_animation-direction, forwards) linear infinite;
   width: max-content;
 }

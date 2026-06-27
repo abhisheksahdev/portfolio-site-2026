@@ -48,7 +48,10 @@ export default function Home() {
       <section className="h-screen pl-6 pr-6 pt-20 flex w-full ">
         <div></div>
       </section>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-gray-300 font-sans text-sm">
+          Delivered projects to 10+ clients using
+        </p>
         <SkillsScroller />
       </div>
       {/* work experience timeline */}
