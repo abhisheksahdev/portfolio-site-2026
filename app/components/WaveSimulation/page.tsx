@@ -249,9 +249,9 @@ export default function WaveSimulation({
       mouse.z = 0;
     };
 
-    mount.addEventListener("mousemove", onMouseMove);
-    mount.addEventListener("mouseover", onMouseDown);
-    window.addEventListener("mouseup", onMouseUp);
+    // mount.addEventListener("mousemove", onMouseMove);
+    mount.addEventListener("mousemove", onMouseDown);
+    // window.addEventListener("mouseup", onMouseUp);
     mount.addEventListener("touchmove", onTouchMove, { passive: false });
     mount.addEventListener("touchend", onTouchEnd);
 
