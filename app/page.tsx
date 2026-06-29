@@ -7,6 +7,7 @@ import { SplitText } from "gsap/SplitText";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SkillsScroller from "./components/SkillsScroller/page";
+import WaveSimulation from "./components/WaveSimulation/page";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -46,7 +47,7 @@ export default function Home() {
     <div className="pt-16 p-6">
       {/* three.js artifact */}
       <section className="h-screen pl-6 pr-6 pt-20 flex w-full ">
-        <div></div>
+        <WaveSimulation />
       </section>
       <div className="flex flex-col items-center justify-center">
         <p className="text-gray-300 font-sans text-sm">
