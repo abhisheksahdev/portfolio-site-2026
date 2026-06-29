@@ -1,0 +1,54 @@
+nav {
+  width: fit-content;
+  isolation: isolate;
+
+  & > div:hover {
+    anchor-name: --hovered-link;
+  }
+
+  & > div > a:hover {
+    color: black;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(anchor(bottom));
+    left: calc(anchor(left) + 1rem);
+    right: calc(anchor(right) + 1rem);
+    bottom: calc(anchor(bottom) + 1rem);
+    background: white;
+
+    z-index: -1;
+    position-anchor: --hovered-link;
+
+    border-radius: 10px;
+
+    transition: 300ms
+      linear(
+        0,
+        0.022 1.8%,
+        0.095 4%,
+        0.532 13%,
+        0.723 17.9%,
+        0.861 23.2%,
+        0.91 26%,
+        0.948 29.1%,
+        0.988 35.1%,
+        1.005 42.9%,
+        1
+      );
+  }
+
+  &:has(a:hover)::after {
+    top: anchor(top);
+    left: anchor(left);
+    right: anchor(right);
+    bottom: anchor(bottom);
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: 50%;
+    }
+  }
+}
