@@ -181,16 +181,14 @@ export default function WaveSimulation() {
 
     return () => {
       cancelAnimationFrame(rafId);
-      //   mount.removeEventListener("mousemove", onMouseMove);
-      //   mount.removeEventListener("touchmove", onTouchMove);
-      //   mount.removeEventListener("touchend", onTouchEnd);
-      //   window.removeEventListener("resize", onResize);
+      mount.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("resize", onResize);
       renderer.dispose();
       rtA.dispose();
       rtB.dispose();
       textTexture.dispose();
-      //   if (mount.contains(renderer.domElement))
-      //     mount.removeChild(renderer.domElement);
+      if (mount.contains(renderer.domElement))
+        mount.removeChild(renderer.domElement);
     };
   }, []);
 
