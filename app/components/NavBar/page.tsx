@@ -3,24 +3,14 @@
 import "./page.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
 export function NavBar() {
   const pathName = usePathname();
 
-  //   useEffect(() => {
-  //     // Dynamic import to avoid running the polyfill during SSR
-  //     import("@oddbird/css-anchor-positioning").then(() => {
-  //       // The polyfill automatically scans and processes the DOM
-
-  //     });
-
-  //   }, []);
-
   return (
     <header
-      className="flex justify-between pr-6 pl-6 w-screen py-[1vw] fixed z-50 bg-background shadow-2xl
-    border-b-[0.5px] border-gray-800 items-center"
+      className="flex justify-between pr-6 pl-6 w-screen py-[1vw] fixed z-50 bg xshadow-2xl
+    xborder-b-[0.5px] xborder-gray-800 items-center"
     >
       <div className="font-bold text-3xl font-logo">
         <Link href="/">.AVI</Link>

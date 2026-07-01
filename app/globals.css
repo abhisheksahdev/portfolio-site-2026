@@ -45,3 +45,10 @@ body {
 .chars {
   display: inline-block;
 }
+
+canvas {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
