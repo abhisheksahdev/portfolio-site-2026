@@ -6,8 +6,9 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SkillsScroller from "./components/SkillsScroller/page";
-import WaveSimulation from "./components/RippleSimulation/page";
+import WaterRippleSimulation from "./components/RippleSimulation/page";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -28,7 +29,6 @@ export default function Home() {
           trigger: text as string,
           start: "top 94%",
           toggleActions: "restart none none none",
-          // markers: true,
         },
         opacity: 0,
         y: 50,
@@ -38,30 +38,33 @@ export default function Home() {
       });
     });
 
-    // gsap tween
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    // return () => split.revert();
+    // Select all panels using GSAP utility and enforce HTMLElement types
+    const panels: HTMLElement[] = gsap.utils.toArray<HTMLElement>(".panel");
   }, {});
 
   return (
     <div className="">
-      <section className="h-screen flex w-full" id="hero">
-        <WaveSimulation />
+      <section className="h-screen flex w-full panel" id="hero">
+        <WaterRippleSimulation />
       </section>
-      <div className="flex flex-col items-center justify-center mt-20">
-        <p className="text-gray-300 font-mono font-medium text-lg mb-10">
-          Delivered projects to 10+ clients using
-        </p>
-        <SkillsScroller />
-      </div>
+      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen panel">
+        <div className="flex flex-col items-center justify-center mt-20">
+          <p className="text-gray-300 font-mono font-medium text-lg mb-10">
+            Delivered projects to 10+ clients using
+          </p>
+          <SkillsScroller />
+        </div>
+      </section>
       {/* work experience timeline */}
-      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen">
+      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen panel">
         <div className="font-logo font-bold text-5xl leading-18 hero-text">
           Work // काम
         </div>
         <div></div>
       </section>
-      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen">
+      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen panel">
         <div className="font-logo font-bold text-5xl leading-18 hero-text">
           Books I Love
         </div>

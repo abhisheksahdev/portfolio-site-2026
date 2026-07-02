@@ -10,7 +10,7 @@ import {
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-export default function WaveSimulation() {
+export default function WaterRippleSimulation() {
   const mountRef = useRef<HTMLDivElement>(null);
 
   const heroText = "thither";
