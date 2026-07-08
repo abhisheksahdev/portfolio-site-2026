@@ -143,8 +143,12 @@ export default function WaterRippleSimulation() {
     };
 
     const onMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX * window.devicePixelRatio;
-      mouse.y = (mount.clientHeight - e.clientY) * window.devicePixelRatio;
+      const rect = mount.getBoundingClientRect();
+      const localX = e.clientX - rect.left;
+      const localY = e.clientY - rect.top;
+
+      mouse.x = localX * window.devicePixelRatio;
+      mouse.y = (mount.clientHeight - localY) * window.devicePixelRatio;
     };
 
     const onMouseLeave = () => {
@@ -198,7 +202,6 @@ export default function WaterRippleSimulation() {
       style={{
         width: "100%",
         height: "100%",
-        cursor: "crosshair",
       }}
     />
   );

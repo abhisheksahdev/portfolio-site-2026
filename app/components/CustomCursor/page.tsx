@@ -1,34 +1,26 @@
 "use client";
 
+import gsap from "gsap";
 import "./page.css";
-import { useEffect } from "react";
+import { useGSAP } from "@gsap/react";
 
 export default function CustomCursor() {
-  useEffect(() => {
-    const cursor = document.querySelector(".cursor") as HTMLElement;
-    document.addEventListener("mousemove", onMouseMove);
+  useGSAP(() => {
+    gsap.set(".cursor", { xPercent: -50, yPercent: -50 });
+    const xTo = gsap.quickTo(".cursor", "x", { duration: 0.1, ease: "power3" });
+    const yTo = gsap.quickTo(".cursor", "y", { duration: 0.1, ease: "power3" });
 
     function onMouseMove(e: MouseEvent) {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      cursor.style.left = `${x}px`;
-      cursor.style.top = `${y}px`;
+      xTo(e.clientX);
+      yTo(e.clientY);
     }
 
-    const links = Array.from(document.querySelectorAll("nav > div > a"));
+    window.addEventListener("mousemove", onMouseMove);
 
-    links.forEach((link) => {
-      link.addEventListener("mouseover", () => {
-        cursor.classList.add("hide-cursor");
-      });
-      link.addEventListener("mouseleave", () => {
-        cursor.classList.remove("hide-cursor");
-      });
-    });
-  }, []);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, {});
 
-  return (
-    <div className="pointer-events-none fixed rounded-full size-5 bg-white z-50 -translate-1/2 cursor"></div>
-  );
+  return <div className="cursor"></div>;
 }

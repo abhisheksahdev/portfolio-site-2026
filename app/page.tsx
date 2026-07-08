@@ -9,11 +9,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SkillsScroller from "./components/SkillsScroller/page";
 import WaterRippleSimulation from "./components/RippleSimulation/page";
+import { Observer } from "gsap/Observer";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function Home() {
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Observer);
+
     const texts = gsap.utils.toArray(".hero-text");
 
     texts.forEach((text) => {
@@ -38,10 +41,15 @@ export default function Home() {
       });
     });
 
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    const sections = document.querySelectorAll(".panel");
+    const currentIndex = 0;
+    const wrap = gsap.utils.wrap(0, sections.length);
 
-    // Select all panels using GSAP utility and enforce HTMLElement types
-    const panels: HTMLElement[] = gsap.utils.toArray<HTMLElement>(".panel");
+    let animating = false;
+
+    const gotoSection = (index: number, direction: number) => {
+      animating = true;
+    };
   }, {});
 
   return (
