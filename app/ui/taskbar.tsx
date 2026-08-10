@@ -1,5 +1,4 @@
 import Clock from "../components/Clock/page";
-import { makeTimeString } from "../helper/get-local-time";
 import NowPlaying from "./now-playing";
 import NowReading from "./now-reading";
 import { CurrentWeather } from "./weather";
@@ -13,7 +12,6 @@ export function Taskbar() {
       </div>
       <div className="flex absolute right-[2vw] gap-x-4">
         <NowReading />
-        {/* <div className="font-mono text-xs">{makeTimeString()}</div> */}
         <Clock />
       </div>
     </div>
