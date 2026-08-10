@@ -5,8 +5,12 @@ import { useEffect, useState } from "react";
 
 const Time = dynamic(() => import("./Time"), { ssr: false });
 
-export default function Clock() {
-  const [time, setTime] = useState(new Date());
+type ClockProps = {
+  time: number;
+};
+
+export default function Clock({ time: initial }: ClockProps) {
+  const [time, setTime] = useState(new Date(initial));
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,7 +21,7 @@ export default function Clock() {
   }, []);
 
   return (
-    <div className="font-mono text-xs">
+    <div className="font-mono text-xs tabular-nums">
       <Time time={time} />
     </div>
   );
