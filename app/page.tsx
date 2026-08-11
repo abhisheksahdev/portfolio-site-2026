@@ -76,11 +76,15 @@ export default function Home() {
         </div>
         <div className="w-[300vh] flex expContainer">
           {experiences.map((exp, i) => (
-            <section className="w-[100vh]" key={i}>
-              <div className="flex">
-                <p>{exp.position}</p>
-                <p> {exp.organisation}</p>
+            <section className="w-screen p-2" key={i}>
+              <div className="flex items-start justify-between">
+                <div className="mb-2">
+                  <p className="text-xl">{exp.position}</p>
+                  <p className="text-sm">{exp.organisation}</p>
+                </div>
+                <p>{exp.duration}</p>
               </div>
+              {exp.techstack.join(",")}
               {exp.description.map((item, i) => (
                 <div key={i}>
                   <p>{item}</p>
