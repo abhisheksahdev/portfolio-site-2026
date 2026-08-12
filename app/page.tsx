@@ -11,6 +11,7 @@ import SkillsScroller from "./components/SkillsScroller/page";
 import WaterRippleSimulation from "./components/RippleSimulation/page";
 import { Observer } from "gsap/Observer";
 import { experiences } from "./data/work-exp";
+import ExperienceItem from "./ui/experience-item";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -52,6 +53,7 @@ export default function Home() {
         pin: true,
         scrub: 1,
         end: "+=3000",
+        // markers: true,
       },
     });
   }, {});
@@ -70,27 +72,13 @@ export default function Home() {
         </div>
       </section>
       {/* work experience timeline */}
-      <section className="pl-6 pr-6 pt-20 flex flex-col w-full h-screen overflow-x-hidden work-section">
-        <div className="font-logo font-bold text-5xl leading-18 hero-text">
-          Work // काम
+      <section className="pl-6 pr-6 flex flex-col w-full h-screen overflow-x-hidden work-section justify-center">
+        <div className="font-logo font-bold text-8xl leading-18 hero-text mb-20">
+          Where Did I Work ?
         </div>
         <div className="w-[300vh] flex expContainer">
           {experiences.map((exp, i) => (
-            <section className="w-screen p-2" key={i}>
-              <div className="flex items-start justify-between">
-                <div className="mb-2">
-                  <p className="text-xl">{exp.position}</p>
-                  <p className="text-sm">{exp.organisation}</p>
-                </div>
-                <p>{exp.duration}</p>
-              </div>
-              {exp.techstack.join(",")}
-              {exp.description.map((item, i) => (
-                <div key={i}>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </section>
+            <ExperienceItem exp={exp} key={i} />
           ))}
         </div>
       </section>

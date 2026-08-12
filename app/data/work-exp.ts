@@ -4,7 +4,7 @@ export type Experience = {
   duration: string;
   description: Array<string>;
   techstack: Array<string>;
-  color: string;
+  logo: string;
 };
 
 export const experiences: Array<Experience> = [
@@ -13,33 +13,33 @@ export const experiences: Array<Experience> = [
     organisation: "Taggle Innovations LLC",
     duration: "Dec 2024 - Feb 2025",
     description: [
-      "Developed client, portal, and admin websites from concept to launch within a 3-month period, ensuring a cohesive and responsive design.",
-      "Collaborated with cross-functional teams to align website functionality with business goals and user needs.",
+      "Shipped 3 production websites — client, portal, and admin — from concept to launch in just 3 months.",
+      "Aligned cross-functional teams around a cohesive, responsive design that scaled across all three platforms.",
     ],
     techstack: ["React", "NodeJS", "MongoDB", "Firebase"],
-    color: "#FF5733",
+    logo: "company-logos/taggle.svg",
   },
   {
     position: "Full Stack Web Developer",
     organisation: "Blast Catering LLC",
     duration: "July 2024 - Dec 2024",
     description: [
-      "Optimized the customer-facing website by analyzing user analytics and enhancing key features, achieving up to 2x faster load times and a 60% improvement in user engagement.",
-      "Improved code quality and application efficiency by implementing best practices and shifting processing from client-side to server-side, reducing resource consumption by 45% and increasing maintainability by 30%.",
+      "Cut load times by 2x and boosted user engagement 60% through data-driven performance optimization.",
+      "Slashed resource consumption 45% by moving key logic from client to server, lifting maintainability by 30%.",
     ],
     techstack: ["React", "TypeScript", "NodeJS", "MongoDB"],
-    color: "#FFC300",
+    logo: "company-logos/blastcatering.svg",
   },
   {
     position: "Software Engineer",
     organisation: "Washon LLC",
     duration: "Sept 2022 - June 2024",
     description: [
-      "Revamped client application using Flutter/Dart, enhancing organization, scalability, and code quality by 2x.",
-      "Implemented the BLoC pattern and integrated Dio for API call management, reducing response times by 50%.",
-      "Minimized production crashes and optimized error handling with Flutter Bloc and Firebase (Crashlytics, Messaging), boosting user experience by 60%.",
+      "Rebuilt the flagship Flutter/Dart app, doubling scalability and code quality across the board.",
+      "Cut API response times in half by architecting BLoC state management with Dio integration.",
+      "Slashed production crashes and lifted UX by 60% with Firebase Crashlytics and robust error handling.",
     ],
     techstack: ["Flutter", "Dart", "BLoC", "Firebase", "Dio"],
-    color: "#DAF7A6",
+    logo: "company-logos/washon.svg",
   },
 ];
